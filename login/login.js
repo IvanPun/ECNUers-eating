@@ -13,7 +13,7 @@ $("#login").click(function(){
                     localStorage.setItem("name", name);
                     localStorage.setItem("password", password);
                     alert("welcome!");
-                    location.href=("index.html");
+                    location.href=("../index.html");
                   }else if(result=="你的密码错误"){
                     $("#warning").html("<h5>你的密码错误</h5>");
                   }else if(result=="该用户不存在"){
@@ -44,7 +44,7 @@ $(document).ready(function(){
                 if(result=="登录成功"){
                     localStorage.setItem("name", name);
                     localStorage.setItem("password", password);
-                    location.href=("index.html");
+                    location.href=("../index.html");
                   }else{
                     localStorage.setItem("name", "");
                     localStorage.setItem("password", "");
@@ -81,7 +81,7 @@ $("#register").click(function(){
                     localStorage.setItem("name", name);
                     localStorage.setItem("password", password);
                     alert("welcome!");
-                    location.href=("index.html");
+                    location.href=("../index.html");
                 }
                 
             }
