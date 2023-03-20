@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+/* 导航栏 */
+.nav{
+    width:100%;
+    height:70px;
+    background-color:hsl(100, 26%, 67%, 0.6);
+    top:0;
+    position:relative;
+    overflow: hidden;
+}
+.title {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    width: 20%;
+    height: 70px;
+    margin-left: 40px;
+    margin-top: 15px;
+    float: left;
+}
+
+.logout{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    width: 10%;
+    height: 70px;
+    margin-top: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+button {
+    background-color: #a0c8a5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    width: 15%;
+    padding: 5px;
+    margin-top: 15px;
+    margin-right: 20px;
+    float: right;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
