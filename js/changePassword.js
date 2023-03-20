@@ -14,7 +14,7 @@ $("#change").click(function(){
                     $("#warning").html("<h5>用户名或邮箱不正确</h5>");
                 }else if(result=="修改用户密码成功"){
                     alert("修改用户密码成功!");
-                    location.href=("login.html");
+                    location.href=("../login.html");
                 }
             }
         })
