@@ -3,8 +3,16 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: red;
-    color: white;
+    color: black;
     text-align: center;
   }
 
+  .icons {
+    width: 64px;
+    height: 66px;
+    box-sizing: border-box;
+  }
+
+  .icon-word{
+    margin-top: 5%;
+  }
