@@ -7,9 +7,19 @@
 
 .personal-icon{
     width: 60%;
+    max-width: 200px;
 }
 
 #change_personal_data{
     margin-top: 5%;
     border-radius: 10px;
+}
+
+.card{
+    margin-top: 5%;
+}
+
+.Ilike{
+    margin: 100%;
+    margin: 2.5% auto;
 }
