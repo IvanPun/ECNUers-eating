@@ -10,3 +10,36 @@
 .container{
     width: 80%;
 }
+
+.icon{
+    width: 10%;
+    float: left;
+    margin-right: 2%;
+    max-width: 50px;
+    
+}
+
+.card-footer {
+    font-size: 8px;
+}
+
+.card-body{
+    min-height: 100px;
+}
+
+.block{
+    margin-bottom: 30px;
+}
+
+.review{
+    float: right;
+}
+
+.commend{
+    max-width: 30px;
+    margin-left: 5px;
+}
+
+.like{
+    max-width: 30px;
+}
