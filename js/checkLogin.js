@@ -16,6 +16,7 @@ $(document).ready(function(){
                   }else{
                     localStorage.setItem("name", "");
                     localStorage.setItem("password", "");
+                    location.href=("login.html");
                   }
             }
         })
