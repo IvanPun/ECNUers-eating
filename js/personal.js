@@ -2,10 +2,10 @@
 $(document).ready(function(){
     var name=localStorage.getItem("name");
     if(id!=""){
-        const Url='https://3a60cb8f.r8.cpolar.top/getUserByName/'+id;
+        const Url='https://893fb54.r15.cpolar.top/getUserByName/'+id;
         $.ajax({
             url: Url,
-            type: "GET",
+            type: "POST",
             success:function(result){
                 console.log(result);
                 var html="";
@@ -35,10 +35,10 @@ $(document).ready(function(){
 $("#change_personal_data").click(function(){
     var id=localStorage.getItem("id");
     if (id!="") {
-        const Url='https://3a60cb8f.r8.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='https://893fb54.r15.cpolar.top/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
-            type: "GET",
+            type: "POST",
             success:function(result){
                 console.log(result);
                 if(result=="登录成功"){

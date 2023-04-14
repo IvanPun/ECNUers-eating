@@ -1,10 +1,10 @@
 $(document).ready(function(){
     var id=localStorage.getItem("id");
     if(id!=""){
-        const Url='https://3a60cb8f.r8.cpolar.top/getMemberById/'+id;
+        const Url='https://893fb54.r15.cpolar.top/getMemberById/'+id;
         $.ajax({
             url: Url,
-            type: "GET",
+            type: "POST",
             success:function(result){
                 console.log(result);
                 $("#personal_data").html("");
