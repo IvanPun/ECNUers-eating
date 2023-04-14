@@ -19,7 +19,7 @@ $(document).ready(function(){
                         '<a href="change_personal_data.html"><button type="button" class="btn btn-outline-warning mx-auto d-block" id="change_personal_data">修改个人信息</button></a>'+
                         '<div class="card" style="width: 100%;margin-top: 5%;">'+
                         '<ul class="list-group list-group-flush">'+
-                        '<li class="list-group-item">'+result.name+'</li>'+
+                        '<li class="list-group-item">昵称：'+result.name+'</li>'+
                         '<li class="list-group-item">邮箱：'+ result.email +'</li>'+
                         '<li class="list-group-item">'+result.signature+'</li>'+
                         '</ul>'+
