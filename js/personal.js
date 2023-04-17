@@ -2,7 +2,7 @@
 $(document).ready(function(){
     var name=localStorage.getItem("name");
     if(name!=""){
-        const Url='https://893fb54.r15.cpolar.top/getUserByName/'+name;
+        const Url='https://58b9025a.r8.cpolar.top/getUserByName/'+name;
         $.ajax({
             url: Url,
             type: "POST",
@@ -40,7 +40,7 @@ $(document).ready(function(){
 $("#change_personal_data").click(function(){
   var name=localStorage.getItem("name");
     if (id!="") {
-        const Url='https://893fb54.r15.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='https://58b9025a.r8.cpolar.top/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
             type: "POST",

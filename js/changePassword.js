@@ -4,7 +4,7 @@ $("#change").click(function(){
     var password=$('#logpass').val();
     var email=$('#logemail').val();
     if (name!="" && password!=""&& email!="") {
-        const Url='https://893fb54.r15.cpolar.top/changeUserPassword/'+name+'/'+email+'/'+password;
+        const Url='https://58b9025a.r8.cpolar.top/changeUserPassword/'+name+'/'+email+'/'+password;
         $.ajax({
             url: Url,
             type: "POST",
