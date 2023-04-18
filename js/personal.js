@@ -2,7 +2,7 @@
 $(document).ready(function(){
     var name=localStorage.getItem("name");
     if(name!=""){
-        const Url='https://6ac18ad4.r8.cpolar.top/getUserByName/'+name;
+        const Url='http://124.71.207.55:8081/getUserByName/'+name;
         $.ajax({
             url: Url,
             type: "POST",

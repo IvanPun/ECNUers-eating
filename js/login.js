@@ -3,7 +3,7 @@ $("#login").click(function(){
     var name=$("#logname").val();
     var password=$('#logpass').val();
     if (name!="" && password!="") {
-        const Url='https://6ac18ad4.r8.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='http://124.71.207.55:8081/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
             type: "POST",
@@ -35,7 +35,7 @@ $(document).ready(function(){
     var name=localStorage.getItem("name");
     var password=localStorage.getItem("password");
     if(name!=""&&password!=""){
-        const Url='https://6ac18ad4.r8.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='http://124.71.207.55:8081/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
             type: "POST",
@@ -67,7 +67,7 @@ $("#register").click(function(){
     console.log(email);
     console.log(password);
     if (name!="" && password!=""&&email!="") {
-        const Url='https://6ac18ad4.r8.cpolar.top/InsertUser/'+name+'/'+password+'/'+email;
+        const Url='http://124.71.207.55:8081/InsertUser/'+name+'/'+password+'/'+email;
         $.ajax({
             url: Url,
             type: "POST",

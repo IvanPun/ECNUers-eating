@@ -6,7 +6,7 @@ $("#change_data").click(function(){
     var signature=$('#signature').val();
 
     if (name!="" && password!=""&& email!="") {
-        const Url='https://6ac18ad4.r8.cpolar.top/changeUserPassword/'+name+'/'+email+'/'+password;
+        const Url='http://124.71.207.55:8081/changeUserPassword/'+name+'/'+email+'/'+password;
         $.ajax({
             url: Url,
             type: "POST",
