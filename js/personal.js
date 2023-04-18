@@ -2,14 +2,14 @@
 $(document).ready(function(){
     var name=localStorage.getItem("name");
     if(name!=""){
-        const Url='https://58b9025a.r8.cpolar.top/getUserByName/'+name;
+        const Url='https://6ac18ad4.r8.cpolar.top/getUserByName/'+name;
         $.ajax({
             url: Url,
             type: "POST",
             success:function(result){
                 console.log(result);
                 if(result.photo==null){
-                  var photo= 'test-person-icon';
+                  var photo= 'default';
                 }else{
                   var photo = result.photo;
                 }
@@ -36,33 +36,4 @@ $(document).ready(function(){
     }
 })
 
-//Change Personal Data
-$("#change_personal_data").click(function(){
-  var name=localStorage.getItem("name");
-    if (id!="") {
-        const Url='https://58b9025a.r8.cpolar.top/userLogin/'+name+'/'+password;
-        $.ajax({
-            url: Url,
-            type: "POST",
-            success:function(result){
-                console.log(result);
-                if(result=="登录成功"){
-                    localStorage.setItem("name", name);
-                    localStorage.setItem("password", password);
-                    alert("welcome!");
-                    location.href=("index.html");
-                  }else if(result=="你的密码错误"){
-                    $("#warning").html("<h5>你的密码错误</h5>");
-                  }else if(result=="该用户不存在"){
-                    $("#warning").html("<h5>该用户不存在</h5>");
-                  }
-            }
-        })
-    }else if(name==''&&password==''){
-        $("#warning").html("<h5>用戶名和密码都不能空缺！</h5>");
-      }else if(name==''){
-        $("#warning").html("<h5>用戶名不能空缺！</h5>");
-      }else{
-        $("#warning").html("<h5>密码不能空缺！</h5>");
-      }
-})
+

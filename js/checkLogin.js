@@ -3,7 +3,7 @@ $(document).ready(function(){
     var name=localStorage.getItem("name");
     var password=localStorage.getItem("password");
     if(name!=""&&password!=""){
-        const Url='https://58b9025a.r8.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='https://6ac18ad4.r8.cpolar.top/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
             type: "POST",
