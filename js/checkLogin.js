@@ -1,5 +1,6 @@
 //check login
 $(document).ready(function(){
+    
     var name=localStorage.getItem("name");
     var password=localStorage.getItem("password");
     if(name!=""&&password!=""){
@@ -22,5 +23,6 @@ $(document).ready(function(){
     }else{
         localStorage.setItem("name", "");
         localStorage.setItem("password", "");
+        location.href=("login.html");
     }
 })

@@ -63,9 +63,6 @@ $("#register").click(function(){
     var name=$("#regname").val();
     var email=$("#regemail").val();
     var password=$('#regpass').val();
-    console.log(name);
-    console.log(email);
-    console.log(password);
     if (name!="" && password!=""&&email!="") {
         const Url='http://124.71.207.55:8081/InsertUser/'+name+'/'+password+'/'+email;
         $.ajax({
