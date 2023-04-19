@@ -82,11 +82,9 @@ $(document).ready(function() {
       event.preventDefault();
       var formData = new FormData();
       var name=localStorage.getItem("name");
-      var photo=$('#formFile').val();
       formData.append('name',name);
-      formData.append('photo',photo);
-      console.log(photo);
-      console.log(formData);
+      formData.append('photo',$('#formFile')[0].files[0]);
+      //console.log(document.getElementById("formFile").files[0]);
       $.ajax({
         url: 'http://124.71.207.55:8081/uploadUserImgByName',
         type: 'POST',
@@ -96,10 +94,10 @@ $(document).ready(function() {
         contentType: false,
         processData: false,
         success: function(response) {
-          alert(response);
+          console.log(response);
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-          console.log(textStatus, errorThrown);
+        error: function(response) {
+          console.log(response);
         }
       });
       return false;
