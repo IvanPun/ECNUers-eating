@@ -8,15 +8,15 @@ $(document).ready(function(){
           type: "POST",
           success:function(result){
               console.log(result);
-              if(result.photo==null){
-                var photo= 'default';
+              if(result.photopath==null){
+                var photo= 'photos/default.jpg';
               }else{
-                var photo = result.photo;
+                var photo = result.photopath;
               }
               var html="";
               html =  '<div class="card">'+
                       '  <div class="card-body">'+
-                      '      <img src="photos/'+photo+'.jpg" class="mx-auto d-block personal-icon rounded-circle" >'+
+                      '      <img src="'+photo+'" class="mx-auto d-block personal-icon rounded-circle" >'+
                       '      <a href=""><button type="button" class="btn btn-outline-warning mx-auto d-block" id="change_icon">修改个人头像</button></a>'+
                       '      <div class="form-floating mb-3">'+
                       '          <input type="text" class="form-control" id="newname" placeholder="null">'+
@@ -75,12 +75,18 @@ $("#change_data").click(function(){
       }
 })
 
+
+//changeicon
 $(document).ready(function() {
     $('#changeicon').submit(function(event) {
       event.preventDefault();
-      var formData = new FormData($(this)[0]);
+      var formData = new FormData();
       var name=localStorage.getItem("name");
+      var photo=$('#formFile').val();
       formData.append('name',name);
+      formData.append('photo',photo);
+      console.log(photo);
+      console.log(formData);
       $.ajax({
         url: 'http://124.71.207.55:8081/uploadUserImgByName',
         type: 'POST',
@@ -99,5 +105,6 @@ $(document).ready(function() {
       return false;
     });
   });
+
   
 

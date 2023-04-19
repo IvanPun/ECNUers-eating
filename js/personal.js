@@ -8,14 +8,14 @@ $(document).ready(function(){
             type: "POST",
             success:function(result){
                 console.log(result);
-                if(result.photo==null){
-                  var photo= 'default';
+                if(result.photopath==null){
+                  var photo= 'photos/default.jpg';
                 }else{
-                  var photo = result.photo;
+                  var photo = result.photopath;
                 }
                 var html="";
                 html =  '<div class="container" id="personal_data">'+
-                        '<img src="photos/'+ photo +'.jpg" class="mx-auto d-block personal-icon rounded-circle" >'+
+                        '<img src="'+photo+'" class="mx-auto d-block personal-icon rounded-circle" >'+
                         '<a href="change_personal_data.html"><button type="button" class="btn btn-outline-warning mx-auto d-block" id="change_personal_data">修改个人信息</button></a>'+
                         '<div class="card" style="width: 100%;margin-top: 5%;">'+
                         '<ul class="list-group list-group-flush">'+
