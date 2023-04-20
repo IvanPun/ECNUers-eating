@@ -12,7 +12,6 @@ $("#login").click(function(){
                 if(result=="登录成功"){
                     localStorage.setItem("name", name);
                     localStorage.setItem("password", password);
-                    alert("welcome!");
                     location.href=("index.html");
                   }else if(result=="你的密码错误"){
                     $("#warning").html("<h5>你的密码错误</h5>");
