@@ -14,8 +14,7 @@ $(document).ready(function(){
                   var photo = result.photopath;
                 }
                 var html="";
-                html =  '<div class="container" id="personal_data">'+
-                        '<img src="'+photo+'" class="mx-auto d-block personal-icon rounded-circle" >'+
+                html =  '<img src="'+photo+'" class="mx-auto d-block personal-icon rounded-circle" >'+
                         '<a href="change_personal_data.html"><button type="button" class="btn btn-outline-warning mx-auto d-block" id="change_personal_data">修改个人信息</button></a>'+
                         '<div class="card" style="width: 100%;margin-top: 5%;">'+
                         '<ul class="list-group list-group-flush">'+
@@ -24,9 +23,7 @@ $(document).ready(function(){
                         '<li class="list-group-item">'+result.signature+'</li>'+
                         '</ul>'+
                         '</div>'+
-                        '<button type="button" class="btn btn-secondary" style="margin-top: 5%;" id="logout">登出</button><br>'+
-                        '<button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-top: 5%;" >注销</button><br>'+
-                        '</div>'
+                        '</div>';
                 $("#personal_data").append(html);
                 $("#confirm-name").append('<input type="text" readonly class="form-control-plaintext" id="name" value="'+result.name+'">');
             }
@@ -67,5 +64,6 @@ $("#logout").click(function () {
     localStorage.setItem("password", "");
     location.href=("login.html");
 })
+
 
 
