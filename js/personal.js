@@ -24,16 +24,48 @@ $(document).ready(function(){
                         '<li class="list-group-item">'+result.signature+'</li>'+
                         '</ul>'+
                         '</div>'+
-                        '<button type="button" class="btn btn-secondary" style="margin-top: 5%;">登出</button><br>'+
-                        '<button type="button" class="btn btn-danger" style="margin-top: 5%;">注销</button><br>'+
-                        '<button type="button" class="btn btn-outline-success" style="margin-top: 5%;float: right;">设为公开</button>'+
+                        '<button type="button" class="btn btn-secondary" style="margin-top: 5%;" id="logout">登出</button><br>'+
+                        '<button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-top: 5%;" >注销</button><br>'+
                         '</div>'
                 $("#personal_data").append(html);
+                $("#confirm-name").append('<input type="text" readonly class="form-control-plaintext" id="name" value="'+result.name+'">');
             }
         })
     }else{
         location.href=("login.html");
     }
+})
+
+$("#confirm-delete").click(function(){
+    var name=localStorage.getItem("name");
+    var password=$('#inputPassword').val();
+    if(password==""){
+        $("#warning").html("密码不能空");
+    }else{
+        const Url='http://124.71.207.55:8081/deleteUser/'+name+'/'+password;
+        $.ajax({
+            url: Url,
+            type: "POST",
+            success:function(result){
+                console.log(result);
+                if(result=="用户名或密码不正确"){
+                    $("#warning").html("密码错误");
+                }else{
+                    localStorage.setItem("name", "");
+                    localStorage.setItem("password", "");
+                    location.href=("login.html");
+                }
+            }
+        })
+    }
+    
+})
+
+
+$("#logout").click(function () {
+    localStorage.setItem("name", "");
+    localStorage.setItem("password", "");
+    location.href=("login.html");
 })
 
 

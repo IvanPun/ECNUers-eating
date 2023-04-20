@@ -18,3 +18,8 @@
 a{
     text-decoration: none;
 }
+
+.confirm-info{
+    width: 80%;
+    margin-left: 5%;
+}
