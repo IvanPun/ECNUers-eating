@@ -12,7 +12,12 @@ $(document).ready(function(){
                 for(var i=0;i<result.length;i++){
                     console.log(result[i]);
                     thisData=result[i];
-                    var time = thisData.time;
+                    if(thisData.favor>0){
+                        var like = '<i class="bi bi-hand-thumbs-up-fill">'+thisData.favor+'</i>';
+                    }else{
+                        var like = '<i class="bi bi-hand-thumbs-up"></i>';
+                    }
+                    
                     html += '<div class="block">'+
                             '    <a href="others.html"><img src="photos/test-person-icon.jpg" class="icon rounded-circle"></a>'+
                             '    <div class="card">'+
@@ -22,9 +27,7 @@ $(document).ready(function(){
                             '        </div>'+
                             '        <div class="card-footer text-muted">'+
                             '        发布时间：'+thisData.time+
-                            '            <div class="review">'+
-                            '                <img src="icons/like.svg" class="like">'+
-                            '                <img src="icons/commend.svg" class="commend">'+
+                            '            <div class="review">'+ like+
                             '            </div>'+
                             '        </div>'+
                             '    </div>'+

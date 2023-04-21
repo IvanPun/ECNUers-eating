@@ -13,6 +13,12 @@ $(document).ready(function(){
                 }else{
                   var photo = result.photopath;
                 }
+
+                if(result.signature==null){
+                    var signature="此人很懒，没有留下个性签名";
+                }else{
+                    var signature=result.signature;
+                }
                 var html="";
                 html =  '<img src="'+photo+'" class="mx-auto d-block personal-icon rounded-circle" >'+
                         '<a href="change_personal_data.html"><button type="button" class="btn btn-outline-warning mx-auto d-block" id="change_personal_data">修改个人信息</button></a>'+
@@ -20,7 +26,7 @@ $(document).ready(function(){
                         '<ul class="list-group list-group-flush">'+
                         '<li class="list-group-item">昵称：'+result.name+'</li>'+
                         '<li class="list-group-item">邮箱：'+ result.email +'</li>'+
-                        '<li class="list-group-item">'+result.signature+'</li>'+
+                        '<li class="list-group-item">'+signature+'</li>'+
                         '</ul>'+
                         '</div>';
                 $("#personal_data").append(html);

@@ -28,7 +28,8 @@
 }
 
 .block{
-    margin-bottom: 30px;
+
+    margin-top: 30px;
 }
 
 .review{
@@ -47,3 +48,18 @@
 .foods{
     width: 20%;
 }
+
+#communitymain{
+    margin-bottom: 20%;
+}
+
+@media (max-width:720px) {
+    #communitymain{
+        margin-bottom: 30%;
+    }
+}
+
+.bi-hand-thumbs-up-fill{
+    color: red;
+}
+
