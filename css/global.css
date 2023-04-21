@@ -17,3 +17,12 @@
   .icon-word{
     margin-top: 5%;
   }
+
+  .dropdown-item{
+    color: white;
+  }
+
+  .dropdown-item:hover{
+    background-color: #00A200;
+    color: white;
+  }

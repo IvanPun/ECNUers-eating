@@ -22,7 +22,6 @@ $(document).ready(function(){
                         '<li class="list-group-item">邮箱：'+ result.email +'</li>'+
                         '<li class="list-group-item">'+result.signature+'</li>'+
                         '</ul>'+
-                        '</div>'+
                         '</div>';
                 $("#personal_data").append(html);
                 $("#confirm-name").append('<input type="text" readonly class="form-control-plaintext" id="name" value="'+result.name+'">');
@@ -31,6 +30,7 @@ $(document).ready(function(){
     }else{
         location.href=("login.html");
     }
+    
 })
 
 $("#confirm-delete").click(function(){
