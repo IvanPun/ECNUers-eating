@@ -17,3 +17,10 @@
   .icon-word{
     margin-top: 5%;
   }
+  .table_nav>tr>td{
+    border: 1px solid black;
+  }
+  td{
+    border: 1px solid black;
+
+  }
