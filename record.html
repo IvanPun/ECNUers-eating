@@ -16,6 +16,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
+    <style>
+      
+    </style>
   </head>
   <body>
     <!-- navbar -->
@@ -103,139 +106,125 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane" id="record">
             <ul class="your-record">
-              <li>
-                <div class="input-group mb-3" style="margin-top: 5%">
-                  <button
-                    class="btn btn-outline-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    id="choose-canteen"
-                  >
-                    选择食堂
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a
-                        class="dropdown-item"
-                        href="#"
-                        onclick="record_west_canteen()"
-                        >河西食堂</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item"
-                        href="#"
-                        onclick="record_east_canteen()"
-                        >河东食堂</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item"
-                        href="#"
-                        onclick="record_LiWa_canteen()"
-                        >丽娃食堂</a
-                      >
-                    </li>
-                  </ul>
-                  <input
-                    type="text"
-                    class="form-control"
-                    aria-label="Text input with dropdown button"
-                    placeholder="请输入菜品名称"
-                    id="input-food-name"
-                  />
-                </div>
-              </li>
+<!--              <li>-->
+<!--                <div class="input-group mb-3" style="margin-top: 5%">-->
+<!--                  <button-->
+<!--                    class="btn btn-outline-secondary dropdown-toggle"-->
+<!--                    type="button"-->
+<!--                    data-bs-toggle="dropdown"-->
+<!--                    aria-expanded="false"-->
+<!--                    id="choose-canteen"-->
+<!--                  >-->
+<!--                    选择食堂-->
+<!--                  </button>-->
+<!--                  <ul class="dropdown-menu">-->
+<!--                    <li>-->
+<!--                      <a-->
+<!--                        class="dropdown-item"-->
+<!--                        href="#"-->
+<!--                        onclick="record_west_canteen()"-->
+<!--                        >河西食堂</a-->
+<!--                      >-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                      <a-->
+<!--                        class="dropdown-item"-->
+<!--                        href="#"-->
+<!--                        onclick="record_east_canteen()"-->
+<!--                        >河东食堂</a-->
+<!--                      >-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                      <a-->
+<!--                        class="dropdown-item"-->
+<!--                        href="#"-->
+<!--                        onclick="record_LiWa_canteen()"-->
+<!--                        >丽娃食堂</a-->
+<!--                      >-->
+<!--                    </li>-->
+<!--                  </ul>-->
+<!--                  <input-->
+<!--                    type="text"-->
+<!--                    class="form-control"-->
+<!--                    aria-label="Text input with dropdown button"-->
+<!--                    placeholder="请输入菜品名称"-->
+<!--                    id="input-food-name"-->
+<!--                  />-->
+<!--                </div>-->
+<!--              </li>-->
 
-              <li>
-                <div class="form-floating" style="margin: 2%">
+<!--              <li>-->
+<!--                <div class="form-floating" style="margin: 2%">-->
+<!--                  <input-->
+<!--                    type="text"-->
+<!--                    class="form-control"-->
+<!--                    placeholder="window"-->
+<!--                    id="input-window"-->
+<!--                  />-->
+<!--                  <label for="window">请输入窗口名称</label>-->
+<!--                </div>-->
+                <div  class="form-floating" style="margin-top: 20px">
                   <input
-                    type="text"
-                    class="form-control"
-                    placeholder="window"
-                    id="input-window"
+                          type="text"
+                          class="form-control textbz"
+                          placeholder="window"
+                          id="input-window"
                   />
-                  <label for="window">请输入窗口名称</label>
+                  <label for="window">备注</label>
                 </div>
               </li>
               <li>
-                <div class="form-floating" style="margin: 2%">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="price"
-                    id="input-food-price"
-                  />
-                  <label for="price">价格（只需填写数字）</label>
-                </div>
-              </li>
-              <li>
-                上传图片:
-                <!-- 拍摄相片 -->
-                <div
-                  style="
-                    font-size: large;
-                    font-weight: bold;
-                    color: #008000;
-                    margin: 20px;
-                  "
-                >
-                  方式1：拍照上传
-                </div>
-                <div class="img-container">
-                  <img src="http://iph.href.lu/375x375" alt="占位" id="myImg" />
-                </div>
-                <!-- 唤起按钮 -->
-                <div class="call-camera-container">
-                  <button>📷</button>
-                  <input type="file" accept="image/*" />
-                </div>
-                <!-- 用于处理图像大小 -->
-                <canvas class="used-for-changing-photo-size"></canvas>
+<!--                <div class="form-floating" style="margin: 2%">-->
+<!--                  <input-->
+<!--                    type="text"-->
+<!--                    class="form-control"-->
+<!--                    placeholder="price"-->
+<!--                    id="input-food-price"-->
+<!--                  />-->
+<!--                  <label for="price">价格（只需填写数字）</label>-->
+<!--                </div>-->
               </li>
             </ul>
-            <div
-              style="
-                font-size: large;
-                font-weight: bold;
-                color: #008000;
-                margin: 20px;
-              "
-            >
-              方式2：上传文件
-            </div>
+<!--            <div-->
+<!--              style="-->
+<!--                font-size: large;-->
+<!--                font-weight: bold;-->
+<!--                color: #008000;-->
+<!--                margin: 20px;-->
+<!--              "-->
+<!--            >-->
+<!--              方式2：上传文件-->
+<!--            </div>-->
             <div style="line-height: 100px; text-align: center; margin: auto">
               <!-- <button type="button" class="btn btn-success" onclick="uploadPicture()">上传图片</button> -->
               <div class="mb-3">
-                <label for="formFile" class="form-label"
-                  >Default file input example</label
-                >
                 <input class="form-control" type="file" id="formFile" />
               </div>
-              <button type="button" class="btn btn-primary btnupload">
+              <!-- <button type="button" class="btn btn-primary btnupload">
                 上传
+              </button> -->
+            </div>
+            <div style="display: flex; align-items: center; margin-top: 20px">
+              <!-- <input type="file" id="upload-picture" /> -->
+              <div class="form-check">
+                <input class="form-check-input" value="公开" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  公开
+                </label>
+              </div>
+              <div  style="margin-left: 10px" class="form-check">
+                <input class="form-check-input"  value="不公开" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  不公开
+                </label>
+              </div>
+              <button
+                type="button"
+                class="btn btn-outline-success userdk food-record"
+              >
+                我要打卡
               </button>
             </div>
-            <input type="file" id="upload-picture" style="opacity: 0" />
-            <button
-              type="button"
-              class="btn btn-outline-success"
-              style="margin-top: 5%; float: right"
-              id="record-information-public"
-            >
-              设为公开
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-success food-record"
-              style="margin-top: 20%"
-              onclick="record()"
-            >
-              我要打卡
-            </button>
           </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="achievement">
@@ -278,23 +267,19 @@
               tabindex="0"
             >
               <div class="container mt-5">
+                <div>
+               
                 <table
-                  class="table_nav"
+                  class="table_navs asd"
                   border="1"
-                  style="border: 1px solid black"
+                  
+                  style="border: 1px solid black;margin-top: -50px;"
                 >
-                  <tr>
-                    <td>打卡日期</td>
-                    <td>打卡状态</td>
-                    <td>打卡时间</td>
-                  </tr>
-                  <tr>
-                    <td>2023-4-17</td>
-                    <td>已打卡</td>
-
-                    <td>13：23分</td>
-                  </tr>
                 </table>
+              </div>
+              <div>
+                
+              </div>
                 <div class="row">
                   <!-- <div class="col">
                         <h2 class="text-center mb-4"> year 年 month + 1 月</h2>
@@ -330,18 +315,11 @@
                       </div> -->
                 </div>
               </div>
-              <ul>
-                <li>你已连续打卡<span>XX</span>天</li>
-                <li>你一共打卡<span>XX</span>天</li>
+              <ul style="margin-top: -100px;">
+                <li>你已连续打卡<span class="lxdk">XX</span>天</li>
+                <li>你一共打卡<span class="ygdk"></span>天</li>
               </ul>
-              <button
-                type="button"
-                class="btn btn-outline-success"
-                style="margin-top: 5%; float: right"
-                id="record-date-public"
-              >
-                设为公开
-              </button>
+              
             </div>
             <div
               class="tab-pane fade"
