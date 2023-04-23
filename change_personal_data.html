@@ -69,6 +69,7 @@
 
       </div>
 
+      <!--
       <form id="changeicon" method="post" enctype="multipart/form-data">
         <div class="mb-3">
           <div class="mb-3">
@@ -76,6 +77,46 @@
           </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+      -->
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#success" id="btn1"></button>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#fail" id="btn2"></button>
+
+      <!-- Success Modal -->
+      <div class="modal fade" id="success" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">警告</h1> -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h1 class="text-center" style="color:green">更改成功</h1>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-success" id="finish">确定</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fail Modal -->
+      <div class="modal fade" id="fail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h1 class="text-center" style="color:orange">你好像还没有选择图片</h1>
+            </div>
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       
 
