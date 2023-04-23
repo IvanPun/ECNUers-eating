@@ -17,21 +17,23 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg sticky-top"  data-bs-theme="dark" style="background-color: green;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">吃货小花狮</a>
+          <a class="navbar-brand" href="#">吃货小花狮</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">主页</a>
+                <a class="nav-link active" aria-current="page" href="index.html">主頁</a>
               </li>
-              
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">登入</a>
+              </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   关于我们
                 </a>
-                <ul class="dropdown-menu" style="background-color: green;">
+                <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">关于网页</a></li>
                   <li><a class="dropdown-item" href="member.html">制作团队</a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -189,7 +191,7 @@
  <script>
     $.ajax({
 		method: 'get',
-        url: 'http://124.71.207.55:8081/getMemberById/1',
+        url: 'https://3a60cb8f.r8.cpolar.top/getMemberById/1',
         success: function(res) {
             console.log(res)
             let member1 = '';
@@ -208,7 +210,7 @@
 	});
     $.ajax({
 		method: 'get',
-        url: 'http://124.71.207.55:8081/getMemberById/2',
+        url: 'https://3a60cb8f.r8.cpolar.top/getMemberById/2',
         success: function(res) {
             console.log(res)
             let member1 = '';
@@ -227,7 +229,7 @@
 	});
     $.ajax({
 		method: 'get',
-        url: 'http://124.71.207.55:8081/getMemberById/3',
+        url: 'https://3a60cb8f.r8.cpolar.top/getMemberById/3',
         success: function(res) {
             console.log(res)
             let member1 = '';
