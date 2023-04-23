@@ -7,18 +7,18 @@ $(document).ready(function(){
             url: Url,
             type: "POST",
             success:function(result){
-                console.log(result);
+                //console.log(result);
                 var html="";
                 for(var i=0;i<result.length;i++){
-                    console.log(result[i]);
+                    //console.log(result[i]);
                     thisData=result[i];
                     if(thisData.favor>0){
-                        var like = '<i class="bi bi-hand-thumbs-up-fill">'+thisData.favor+'</i>';
+                        var like = '<i class="bi bi-hand-thumbs-up-fill" id="'+thisData.id+'">'+thisData.favor+'</i>';
                     }else{
-                        var like = '<i class="bi bi-hand-thumbs-up"></i>';
+                        var like = '<i class="bi bi-hand-thumbs-up" id="'+thisData.id+'"></i>';
                     }
                     
-                    html += '<div class="block" id="'+ thisData.id +'">'+
+                    html += '<div class="block">'+
                             '    <a href="others.html"><img src="photos/test-person-icon.jpg" class="icon rounded-circle"></a>'+
                             '    <div class="card">'+
                             '        <div class="card-body">'+
@@ -40,11 +40,32 @@ $(document).ready(function(){
     }else{
         location.href=("login.html");
     }
+
+    $(document).on('click','.bi-hand-thumbs-up',function(){
+        $(this).addClass("bi-hand-thumbs-up-fill");
+        $(this).removeClass("bi-hand-thumbs-up");
+        var get_text = $(this).text();
+        if(get_text==""){
+            $(this).html("1");
+        }else{
+            $(this).html(parseInt(get_text)+1);
+        }
+    });
+    
+    $(document).on('click','.bi-hand-thumbs-up-fill',function(){
+        $(this).addClass("bi-hand-thumbs-up");
+        $(this).removeClass("bi-hand-thumbs-up-fill");
+        var get_text = $(this).text();
+        if(get_text=="1"){
+            $(this).html("");
+        }else{
+            $(this).html(parseInt(get_text)-1);
+        }
+    });
+
 });
 
-$(".block").click(function(){
-    alert("working");
-});
+
 
 /*
 $(".normal").click(function(){
