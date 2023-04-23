@@ -1,3 +1,16 @@
+/*forin演示*/
+let strs = {
+  a:1,
+  b:2,
+  c:3,
+  d:4
+}
+for(let keys in strs){
+  console.log('forin',strs[keys]);
+}
+/*获取对象属性演示*/
+console.log(Object.keys(strs)); //strs对象组成的数组
+Object.keys(strs).forEach(keys=>console.log('我是str里的属性',keys))
 //tab
 $(document).ready(function () {
   $("#record").css("display", "block");
@@ -31,109 +44,56 @@ $(function () {
   });
 });
 
-//上传图片（使用FileReader对象将上传的照片读取成Base64格式）
-window.addEventListener("load", () => {
-  const $camera = document.querySelector("input");
-  $camera.setAttribute("capture", "user");
-  $camera.onchange = handleTakePhoto;
-  //处理照片数据
-  function handleTakePhoto(e) {
-    // 读取照片
-    if (this.files && this.files[0]) {
-      const fileData = this.files[0],
-        fileReader = new FileReader();
-      fileReader.readAsDataURL(fileData);
-      fileReader.onload = (e) => {
-        changePhotoSize(fileReader.result)
-          .then((res) => {
-            const $img = document.querySelector(".img-container img");
-            $img !== null && ($img.src = res);
-          })
-          .catch((e) => {});
-      };
-    }
-  }
-  //调整照片大小
-  function changePhotoSize(imgData) {
-    const $canvas = document.querySelector(".used-for-changing-photo-size"),
-      context = $canvas.getContext("2d"),
-      image = new Image(),
-      // 设置目标宽度（高度随原比例变化）
-      targetWidth = 480;
-    let aspectRatio = 2;
-    image.src = imgData;
-    // console.log(image.src);
-    return new Promise((resolve, reject) => {
-      image.onload = function () {
-        aspectRatio = (this.height / this.width).toFixed(3);
-        this.height = aspectRatio * targetWidth;
-        this.width = targetWidth;
-        $canvas.setAttribute("width", this.width + "px");
-        $canvas.setAttribute("height", this.height + "px");
-        context.drawImage(this, 0, 0, this.width, this.height);
-        resolve($canvas.toDataURL());
-      };
-      image.onerror = (e) => {
-        reject(e);
-      };
-    });
-  }
-});
 
-//record
-function record_west_canteen() {
-  var button = document.getElementById("choose-canteen");
-  button.innerText = "河西食堂";
-}
-
-function record_east_canteen() {
-  var button = document.getElementById("choose-canteen");
-  button.innerText = "河东食堂";
-}
-
-function record_LiWa_canteen() {
-  var button = document.getElementById("choose-canteen");
-  button.innerText = "丽娃食堂";
-}
-
-function record() {
-  var canteen = document.getElementById("choose-canteen");
-  var canteenName = canteen.innerText;
-  console.log(canteenName);
-  var inputName = document.getElementById("input-food-name");
-  var foodName = inputName.value;
-  console.log(foodName);
-  var window = document.getElementById("input-window");
-  var windowName = window.value;
-  console.log(windowName);
-  var price = document.getElementById("input-food-price");
-  var priceValue = parseFloat(price.value);
-  console.log(priceValue);
-  var imgSrc = document.getElementById("myImg").getAttribute("src");
-  console.log(imgSrc);
-  axios({
-    method: "GET",
-    url:
-      "https://754a457f.r3.cpolar.top/" +
-      foodName +
-      "/" +
-      priceValue +
-      "/" +
-      canteenName +
-      "/" +
-      windowName,
-  })
-    .then((response) => {
-      console.log(response);
+$(document).ready(function () {
+  let name = localStorage.getItem("name");
+  axios
+    .post("http://124.71.207.55:8081/getLatelyPostByName/" + name)
+    .then(function (response) {
+      console.log("获取打卡信息", response.data);
+      if (response.status == 200) {
+        let str = "";
+        let str2="";
+        for (let i = 0; i < response.data.length; i++) {
+          str += `<tr>
+          <td>${response.data[i].time}</td>
+        </tr>`;
+        str2 += `<div class="card" style="width: 100%; margin-top: 3%">
+          <img src="${response.data[i].photoPath}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <p class="card-text">
+            ${response.data[i].majority}
+            </p>
+            <div class="get-like">获赞数：${response.data[i].favor}</div>
+          </div>
+        </div>`
+        }
+        $(".table_navs").html(
+          `<tr>
+        <td>打卡时间</td>
+      </tr>` + str
+        );
+        $("#totalrecord").append(str2);
+      }
     })
-    .catch((error) => {
+    .catch(function (error) {
       console.log(error);
     });
-}
+});
 
-function uploadPicture() {
-  var formData = new FormData();
-  var file = document.getElementById("upload-picture").files[0];
-  formData.append("file", file);
-  formData.append("fileData", file.name);
-}
+
+$(document).ready(function () {
+  let name = localStorage.getItem("name");
+  axios
+    .post("http://124.71.207.55:8081/getUserByName/" + name)
+    .then(function (response){
+      console.log("获取打卡日期", response.data);
+      if (response.status == 200) {
+        $(".lxdk").html(response.data.continuousPostDay);
+        $(".ygdk").html(response.data.totalPostDay);
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+});
