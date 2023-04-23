@@ -49,14 +49,36 @@ $(document).ready(function(){
   }
 })
 
-//Change Personal Data
-$("#change_data").click(function(){
-    var oldname=localStorage.getItem("name");
-    var newname=$('#newname').val();
-    var email=$('#email').val();
-    var signature=$('#signature').val();
-    var password=localStorage.getItem("password");
 
+//change data
+$(document).on('click','#change_data',function(){
+    var old_name=localStorage.getItem("name");
+    var password=localStorage.getItem("password");
+    var name = $('#newname').val();
+    var email = $('#email').val();
+    var signature = $('#signature').val();
+    //get value
+    if(name=="" || email=="" || signature==""){
+        const Url='http://124.71.207.55:8081/getUserByName/'+old_name;
+        $.ajax({
+            url: Url,
+            type: "POST",
+            success:function(result){
+                console.log(result);
+                if(name=""){
+                  name=old_name;
+                }
+                if(email=""){
+                  email=result.email;
+                }
+                if(signature=""){
+                  signature=result.signature;
+                }
+            }
+        })
+    }
+    
+/*
     if (name!="" && password!=""&& email!="") {
         const Url='http://124.71.207.55:8081/changeUserInformation/'+oldname+'/'+newname+'/'+password+'/'+email;
         $.ajax({
@@ -79,41 +101,11 @@ $("#change_data").click(function(){
       }else{
         $("#warning").html("<h5>新密码不能空缺！</h5>");
       }
-})
+      */
+});
 
-/*
-//changeicon
-$(document).ready(function() {
-    $('#changeicon').submit(function(event) {
-      event.preventDefault();
-      alert("why i am working");
-      var formData = new FormData();
-      var name=localStorage.getItem("name");
-      formData.append('name',name);
-      formData.append('photo',$('#formFile')[0].files[0]);
-      //console.log(document.getElementById("formFile").files[0]);
-      $.ajax({
-        url: 'http://124.71.207.55:8081/uploadUserImgByName',
-        type: 'POST',
-        data: formData,
-        async: false,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(response) {
-          console.log(response);
-        },
-        error: function(response) {
-          console.log(response);
-        }
-      });
-      return false;
-    });
-  });*/
-
-  
+//change icon  
 $(document).on('click','#changeicon',function(){
-  
     if($('#formFile')[0].files[0]==undefined){
       document.getElementById("btn2").click();
     }else{
