@@ -1,28 +1,7 @@
+var chooseName = document.querySelector(".canteen-window");
+var stName = localStorage.getItem("choose_way");
+var container = document.querySelector(".hdst");
 
-$(".canteen-window").text(localStorage.getItem("ckname"));
-var stName = localStorage.getItem("ckname");
-function fn() {
-  axios({
-    method: "get",
-    url: "http://124.71.207.55:8081/searchDishByWindow/" + stName,
-  }).then((res) => {
-    console.log(res.data);
-    let str = "";
-    for (let i = 0; i < res.data.length; i++) {
-      str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-        <img src="${res.data[i].photoPath}" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">${res.data[i].price}元</h5>
-          <h5 class="card-titles">${res.data[i].name}</h5>
-            <img src="icons/点赞.png" class="like-icon"  style/>
-            <span class="like-number">${res.data[i].favor}</span>
-        </div>
-      </div>`;
-    }
-    $(".hdstdk").html(str);
-  });
-}
-fn();
 var params = {
   text: "",
   heat: "",
@@ -38,7 +17,7 @@ function food_search(a) {
     console.log(res.data);
     let str = "";
     for (let i = 0; i < res.data.length; i++) {
-      if(res.data[i].window==stName){
+      if(res.data[i].canteen==stName){
       str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
         <img src="${res.data[i].photoPath}" class="card-img-top" alt="..." />
         <div class="card-body">
@@ -68,8 +47,7 @@ $(document).ready(function () {
         params.price +
         "/" +
         localStorage.getItem("choose_way") +
-        "/" +
-        localStorage.getItem("ckname"),
+        "/0" ,
     }).then((res) => {
       console.log(res.data);
       let str = "";
@@ -100,8 +78,7 @@ $(document).ready(function () {
         params.heat +
         "/" +
         localStorage.getItem("choose_way") +
-        "/" +
-        localStorage.getItem("ckname"),
+        "/0" ,
     }).then((res) => {
       console.log(res.data);
       let str = "";
@@ -123,11 +100,41 @@ $(document).ready(function () {
   });
 });
 
+function fn(){
+  chooseName.innerHTML = localStorage.getItem("choose_way");
+  axios({
+    method:"get",
+    url:"http://124.71.207.55:8081/getDishListOrderly/favor/"+
+    localStorage.getItem("choose_way")+
+    "/降序/0",
+  }).then((res)=>{
+    console.log(res.data);
+    let str="";
+    for (let i = 0; i < res.data.length; i++) {
+      str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
+        <img src="${res.data[i].photoPath}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">${res.data[i].price}元</h5>
+          <h5 class="card-titles">${res.data[i].name}</h5>
+          
+
+            <img src="icons/点赞.png" class="like-icon" />
+            <span class="like-number">${res.data[i].favor}</span>
+        </div>
+      </div>`;
+    }
+    $(".hdstdk").html(str);
+    
+  })
+}
+fn();
+
+
 $(document).ready(function () {
   var aaa = document.querySelectorAll(".like-icon");
   for (let i = 0; i < aaa.length; i++) {
     aaa[i].addEventListener("click", function () {
-      let dz = aaa[i].parentNode;
+      let dz = aaa[i].parentNode.parentNode;
       console.log(dz);
       let cpname = dz.querySelector(".card-titles").innerHTML;
       var window=document.querySelector(".canteen-window").innerHTML;
