@@ -18,7 +18,7 @@ $(document).ready(function(){
                         var like = '<i class="bi bi-hand-thumbs-up"></i>';
                     }
                     
-                    html += '<div class="block">'+
+                    html += '<div class="block" id="'+ thisData.id +'">'+
                             '    <a href="others.html"><img src="photos/test-person-icon.jpg" class="icon rounded-circle"></a>'+
                             '    <div class="card">'+
                             '        <div class="card-body">'+
@@ -34,10 +34,34 @@ $(document).ready(function(){
                             '</div>';
                 }
                 
-                $("#communitymain").append(html);
+                $("#communitymain").html(html);
             }
         })
     }else{
         location.href=("login.html");
     }
-})
+});
+
+$(".block").click(function(){
+    alert("working");
+});
+
+/*
+$(".normal").click(function(){
+    src = $(this).attr("id");
+	//alert(src);
+    $(this).children("i.icon").toggleClass( "fas" );
+    if ($(this).children("i.icon").hasClass( "fas" )) {
+        likes = "1";
+    } else {
+        likes = "0";
+    }
+    //$(this).children("i.icon").html(likes);
+    
+    console.log(src, likes)
+    $.get( "set_likes.php?src="+src+"&likes="+likes, function( data ) {
+      //alert( data);
+    });
+  });
+});
+*/
