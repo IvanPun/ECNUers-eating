@@ -13,7 +13,7 @@ $(document).ready(function(){
                     //console.log(result[i]);
                     thisData=result[i];
                     if(thisData.favor>0){
-                        var like = '<i class="bi bi-hand-thumbs-up-fill" id="'+thisData.id+'">'+thisData.favor+'</i>';
+                        var like = '<i class="bi bi-hand-thumbs-up" id="'+thisData.id+'">'+thisData.favor+'</i>';
                     }else{
                         var like = '<i class="bi bi-hand-thumbs-up" id="'+thisData.id+'"></i>';
                     }
@@ -50,6 +50,11 @@ $(document).ready(function(){
         }else{
             $(this).html(parseInt(get_text)+1);
         }
+        $.ajax({
+            url: 'http://124.71.207.55:8081/addFavorById/'+this.id+'/1',
+            type: 'POST',
+            
+        })
     });
     
     $(document).on('click','.bi-hand-thumbs-up-fill',function(){
@@ -61,6 +66,11 @@ $(document).ready(function(){
         }else{
             $(this).html(parseInt(get_text)-1);
         }
+        $.ajax({
+            url: 'http://124.71.207.55:8081/addFavorById/'+this.id+'/-1',
+            type: 'POST',
+            
+        })
     });
 
 });
