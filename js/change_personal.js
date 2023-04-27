@@ -7,7 +7,7 @@ $(document).ready(function(){
           url: Url,
           type: "POST",
           success:function(result){
-              console.log(result);
+              
               if(result.photopath==null){
                 var photo= 'photos/default.jpg';
               }else{
@@ -25,17 +25,17 @@ $(document).ready(function(){
                       '         <button type="button" class="btn btn-outline-warning mx-auto d-block" id="changeicon">修改个人头像</button>'+
                       '     </form>'+
                       '      <div class="form-floating mb-3">'+
-                      '          <input type="text" class="form-control" id="newname" placeholder="null">'+
+                      '          <input type="text" class="form-control" id="newname" placeholder="null" value="'+result.name+'">'+
                       '          <label for="floatingInput">更改个人昵称</label>'+
                       '      </div>'+
                       '  '+
                       '      <div class="form-floating mb-3">'+
-                      '        <input type="text" class="form-control" id="email" placeholder="null">'+
+                      '        <input type="text" class="form-control" id="email" placeholder="null" value="'+result.email+'">'+
                       '        <label for="floatingInput">更改电邮</label>'+
                       '    </div>'+
                       '        '+
                       '      <div class="form-floating">'+
-                      '          <textarea class="form-control" placeholder="Leave a comment here" id="signature"></textarea>'+
+                      '          <textarea class="form-control" placeholder="Leave a comment here" id="signature" value="'+result.signature+'"></textarea>'+
                       '          <label for="floatingTextarea">更改个人签名</label>'+
                       '      </div>'+
                       '      <button type="button" class="btn btn-outline-success  d-block" id="change_data">提交</button>'+
@@ -56,52 +56,12 @@ $(document).on('click','#change_data',function(){
     var password=localStorage.getItem("password");
     var name = $('#newname').val();
     var email = $('#email').val();
-    var signature = $('#signature').val();
-    //get value
-    if(name=="" || email=="" || signature==""){
-        const Url='http://124.71.207.55:8081/getUserByName/'+old_name;
-        $.ajax({
-            url: Url,
-            type: "POST",
-            success:function(result){
-                console.log(result);
-                if(name=""){
-                  name=old_name;
-                }
-                if(email=""){
-                  email=result.email;
-                }
-                if(signature=""){
-                  signature=result.signature;
-                }
-            }
-        })
-    }
+    $.ajax({
+      url: 'http://124.71.207.55:8081/changeUserInformation/'+oldname+'/'+newname+'/'+password+'/'+email+'/'+signature,
+      type: 'POST',
+    })
     
-/*
-    if (name!="" && password!=""&& email!="") {
-        const Url='http://124.71.207.55:8081/changeUserInformation/'+oldname+'/'+newname+'/'+password+'/'+email;
-        $.ajax({
-            url: Url,
-            type: "POST",
-            success:function(result){
-                console.log(result);
-                if(result=="用户名或邮箱不正确"){
-                    $("#warning").html("<h5>用户名或邮箱不正确</h5>");
-                }else if(result=="修改用户密码成功"){
-                    alert("修改用户密码成功!");
-                    location.href=("../login.html");
-                }
-            }
-        })
-    }else if(name==''){
-        $("#warning").html("<h5>用戶名不能空缺！</h5>");
-      }else if(email==''){
-        $("#warning").html("<h5>邮箱不能空缺！</h5>");
-      }else{
-        $("#warning").html("<h5>新密码不能空缺！</h5>");
-      }
-      */
+
 });
 
 //change icon  
