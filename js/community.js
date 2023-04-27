@@ -9,6 +9,7 @@ $(document).ready(function(){
             success:function(result){
                 //console.log(result);
                 var html="";
+                var otherphoto = '';
                 for(var i=0;i<result.length;i++){
                     //console.log(result[i]);
                     thisData=result[i];
@@ -17,9 +18,17 @@ $(document).ready(function(){
                     }else{
                         var like = '<i class="bi bi-hand-thumbs-up" id="'+thisData.id+'"></i>';
                     }
-                    
-                    html += '<div class="block">'+
-                            '    <a href="others.html"><img src="photos/test-person-icon.jpg" class="icon rounded-circle"></a>'+
+
+                    $.ajax({
+                        url: 'http://124.71.207.55:8081/getUserByName/'+thisData.name,
+                        type: 'POST',
+                        success: function(data){
+                            otherphoto = data.photopath;
+                            if(otherphoto==null){
+                                otherphoto = 'photos/default.jpg';
+                            }
+                            html += '<div class="block">'+
+                            '    <a href="others.html"><img src="'+otherphoto+'" class="icon rounded-circle"></a>'+
                             '    <div class="card">'+
                             '        <div class="card-body">'+
                             '            <p class="card-text">'+thisData.majority+'</p>'+
@@ -32,9 +41,13 @@ $(document).ready(function(){
                             '        </div>'+
                             '    </div>'+
                             '</div>';
+                            $("#communitymain").html(html);
+                        }
+                    })
+                    
                 }
                 
-                $("#communitymain").html(html);
+                
             }
         })
     }else{
