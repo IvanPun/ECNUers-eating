@@ -53,7 +53,7 @@ function addFoodPic(){
   var foodName = document.querySelector("#addName").value;
     console.log(foodName);
 upload.addEventListener("change", function (e) {
-  console.log("ppp====>", upload.files);
+  console.log("菜品图片", upload.files);
   // 调用axios请求接口上传文件
   var formData = new FormData();
   console.log(upload.files);
@@ -66,13 +66,43 @@ upload.addEventListener("change", function (e) {
       .then(function (response) {
         console.log("文件上传成功", response);
         if (response.status == 200) {
-          alert("图片上传成功");
+          alert("菜品图片上传成功");
         }
       })
       .catch(function (error) {
         console.log("图片上传失败", error);
-        alert("图片上传失败");
+        alert("菜品图片上传失败");
       });
   });
 });
 }
+
+function addWindowPic(){
+  var upload=document.querySelector("#addFormFile2");
+  var windowName=document.querySelector("#input-window").value;
+  console.log(windowName);
+  upload.addEventListener("change",function(e){
+    console.log("窗口图片", upload.files);
+  // 调用axios请求接口上传文件
+  var formData = new FormData();
+  console.log(upload.files);
+  formData.append("name", windowName);
+  formData.append("photo", upload.files[0]);
+  // 发送POST请求，上传文件到服务器
+  $("#addWindowPic").click(function () {
+    axios
+      .post("http://124.71.207.55:8081/uploadWindowsImgByName", formData)
+      .then(function (response) {
+        console.log("文件上传成功", response);
+        if (response.status == 200) {
+          alert("窗口图片上传成功");
+        }
+      })
+      .catch(function (error) {
+        console.log("图片上传失败", error);
+        alert("窗口图片上传失败");
+      });
+  });
+  })
+}
+
