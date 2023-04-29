@@ -19,6 +19,7 @@ $(document).ready(function(){
                         var like = '<i class="bi bi-hand-thumbs-up" id="'+thisData.id+'"></i>';
                     }
 
+
                     $.ajax({
                         url: 'http://124.71.207.55:8081/getUserByName/'+thisData.name,
                         type: 'POST',
@@ -27,23 +28,26 @@ $(document).ready(function(){
                             if(otherphoto==null){
                                 otherphoto = 'photos/default.jpg';
                             }
-                            html += '<div class="block">'+
-                            '    <img src="'+otherphoto+'" class="icon rounded-circle othericon" alt="'+thisData.name+'">'+
-                            '    <div class="card">'+
-                            '        <div class="card-body">'+
-                            '            <p class="card-text">'+thisData.majority+'</p>'+
-                            '            <img src="'+thisData.photopath+'" class="foods">'+
-                            '        </div>'+
-                            '        <div class="card-footer text-muted">'+
-                            '        发布时间：'+thisData.time+
-                            '            <div class="review">'+ like+
-                            '            </div>'+
-                            '        </div>'+
-                            '    </div>'+
-                            '</div>';
-                            $("#communitymain").html(html);
+                            
+                            return otherphoto;
                         }
                     })
+
+                    var html = '<div class="block">'+
+                    '    <img src="'+otherphoto+'" class="icon rounded-circle othericon" alt="'+thisData.name+'">'+
+                    '    <div class="card">'+
+                    '        <div class="card-body">'+
+                    '            <p class="card-text">'+thisData.majority+'</p>'+
+                    '            <img src="'+thisData.photopath+'" class="foods">'+
+                    '        </div>'+
+                    '        <div class="card-footer text-muted">'+
+                    '        发布时间：'+thisData.timestring+
+                    '            <div class="review">'+ like+
+                    '            </div>'+
+                    '        </div>'+
+                    '    </div>'+
+                    '</div>';
+                    $("#communitymain").append(html);
                     
                 }
                 
@@ -53,6 +57,8 @@ $(document).ready(function(){
     }else{
         location.href=("login.html");
     }
+
+    
 
     $(document).on('click','.bi-hand-thumbs-up',function(){
         $(this).addClass("bi-hand-thumbs-up-fill");
@@ -91,5 +97,5 @@ $(document).ready(function(){
 
 $(document).on('click','.othericon',function(){
     var othername = $(this).attr("alt");
-    alert(othername);
+    location.href="others.html?othername="+othername;
 })
