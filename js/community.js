@@ -11,7 +11,7 @@ $(document).ready(function(){
                 var html="";
                 var otherphoto = '';
                 for(var i=0;i<result.length;i++){
-                    //console.log(result[i]);
+                    console.log(result[i]);
                     thisData=result[i];
                     if(thisData.favor>0){
                         var like = '<i class="bi bi-hand-thumbs-up" id="'+thisData.id+'">'+thisData.favor+'</i>';
@@ -28,7 +28,7 @@ $(document).ready(function(){
                                 otherphoto = 'photos/default.jpg';
                             }
                             html += '<div class="block">'+
-                            '    <a href="others.html"><img src="'+otherphoto+'" class="icon rounded-circle"></a>'+
+                            '    <img src="'+otherphoto+'" class="icon rounded-circle othericon" alt="'+thisData.name+'">'+
                             '    <div class="card">'+
                             '        <div class="card-body">'+
                             '            <p class="card-text">'+thisData.majority+'</p>'+
@@ -89,23 +89,7 @@ $(document).ready(function(){
 });
 
 
-
-/*
-$(".normal").click(function(){
-    src = $(this).attr("id");
-	//alert(src);
-    $(this).children("i.icon").toggleClass( "fas" );
-    if ($(this).children("i.icon").hasClass( "fas" )) {
-        likes = "1";
-    } else {
-        likes = "0";
-    }
-    //$(this).children("i.icon").html(likes);
-    
-    console.log(src, likes)
-    $.get( "set_likes.php?src="+src+"&likes="+likes, function( data ) {
-      //alert( data);
-    });
-  });
-});
-*/
+$(document).on('click','.othericon',function(){
+    var othername = $(this).attr("alt");
+    alert(othername);
+})
