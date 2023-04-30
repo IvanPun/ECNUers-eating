@@ -81,6 +81,3 @@ var params = {
     $(".hdst").html(str);
   });
 } 
-
-
-
