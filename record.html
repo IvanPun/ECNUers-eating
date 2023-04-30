@@ -203,7 +203,7 @@
               <div style="color:rgb(0,128,0);font-size: large;font-weight: 700;">上传图片</div>
               <!-- <button type="button" class="btn btn-success" onclick="uploadPicture()">上传图片</button> -->
               <div class="mb-3">
-                <input class="form-control" type="file" id="formFile" />
+                <input class="form-control" type="file" id="recordFormFile" accept="image/jpg,image/png,image/bmp,image/gif,image/jpeg"/>
               </div>
               <!-- <button type="button" class="btn btn-primary btnupload">
                 上传
@@ -264,7 +264,11 @@
             </li>
           </ul>
           <div class="tab-content record-date-list" id="pills-tabContent">
-          
+          <!--返回顶部-->
+          <button onclick="topFunction()" id="myBtn" title="回顶部" class="return">
+            <img src="icons/return.png" style="width:40px;height:40px;">
+          </button>
+          <!------>
             <div
               class="tab-pane fade show active"
               id="pills-home"
@@ -340,6 +344,11 @@
             >
            
               <div class="record-achievement-list" id="totalrecord">
+                <!--返回顶部-->
+                <button onclick="topFunction()" id="myBtn" title="回顶部" class="return">
+                  <img src="icons/return.png" style="width:40px;height:40px;">
+                </button>
+                <!------>
                 <div class="punchCard"></div>
                 <!-- <div class="card" style="width: 100%; margin-top: 3%">
                   <img src="photos/test1.webp" class="card-img-top" alt="..." />
@@ -400,4 +409,5 @@
   <script src="js/record.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./js/recordupload.js"></script>
+  <script src="./js/return.js"></script>
 </html>

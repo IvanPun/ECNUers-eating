@@ -10,16 +10,19 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+  />
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/record.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
-    />
     <style>
       .container {
         padding-bottom: 100px;
         box-sizing: border-box;
+      }
+      .select-item {
+        color: #000;
       }
     </style>
   </head>
@@ -104,10 +107,11 @@
                   >
                     选择食堂
                   </button>
+                  <!--  -->
                   <ul class="dropdown-menu">
                     <li>
                       <a
-                        class="dropdown-item"
+                        class="select-item dropdown-item"
                         href="#"
                         onclick="record_west_canteen()"
                         >河西食堂</a
@@ -115,7 +119,7 @@
                     </li>
                     <li>
                       <a
-                        class="dropdown-item"
+                        class="select-item dropdown-item"
                         href="#"
                         onclick="record_east_canteen()"
                         >河东食堂</a
@@ -123,19 +127,19 @@
                     </li>
                     <li>
                       <a
-                        class="dropdown-item"
+                        class="select-item dropdown-item"
                         href="#"
                         onclick="record_LiWa_canteen()"
                         >丽娃食堂</a
                       >
                     </li>
                   </ul>
-                  <form id="addDishForm">
-                  <input
-                    type="text"
-                    class="form-control"
-                    aria-label="Text input with dropdown button"
-                    placeholder="请输入菜品名称"
+                  <form id="addDishForm addName">
+                     <input
+                      type="text"
+                       class="form-control"
+                      aria-label="Text input with dropdown button"
+                       placeholder="请输入菜品名称"
                     id="addName"
                     name="addName"
                   />
@@ -147,7 +151,7 @@
                 <div class="form-floating" style="margin: 2%">
                   <input
                     type="text"
-                    class="form-control"
+                    class="form-control input-window"
                     placeholder="window"
                     id="input-window"
                   />
@@ -175,14 +179,13 @@
               </button>
             <div style="line-height: 100px; text-align: center; margin: auto">
               <div class="mb-3" style="margin-top: 20px;">
-                <input class="form-control" type="file" id="addFormFile" />
+                <input class="form-control" type="file" id="addFormFile" accept="image/jpg,image/png,image/bmp,image/gif,image/jpeg"/>
               </div>
             </div>
             <div style="display: flex; align-items: center; margin-top: 20px">          
               <button
                 type="button"
                 class="btn btn-outline-success userdk food-record"
-                onclick="addFoodPic()"
                 id="addFoodPic"
               >
                 上传菜品图片
@@ -190,14 +193,13 @@
             </div>
             <div style="line-height: 100px; text-align: center; margin: auto">
               <div class="mb-3" style="margin-top: 20px;">
-                <input class="form-control" type="file" id="addFormFile2" />
+                <input class="form-control" type="file" id="addFormFile2" accept="image/jpg,image/png,image/bmp,image/gif,image/jpeg"/>
               </div>
             </div>
             <div>
               <button
                 type="button"
                 class="btn btn-outline-success windowPic food-record"
-                onclick="addWindowPic()"
                 id="addWindowPic"
               >
                 上传窗口图片
