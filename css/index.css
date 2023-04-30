@@ -3,3 +3,9 @@
     margin: 5% auto;
     width: 80%;
   }
+
+  .foodshow{
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
+  }
