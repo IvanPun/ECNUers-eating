@@ -26,7 +26,7 @@ function food_search(a) {
       }
       if(res.data[i].canteen==stName){
       str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-        <img src="${res.data[i].photoPath}" class="card-img-top" alt="..." />
+        <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].photoPath}" />
         <div class="card-body">
           <h5 class="card-title">${res.data[i].price}元</h5>
           <h5 class="card-titles">${res.data[i].name}</h5>
@@ -65,7 +65,7 @@ $(document).ready(function () {
           var likeImg="icons/like.png";
         }
         str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-          <img src="${res.data[i].photoPath}" class="card-img-top" alt="..." />
+          <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].name}" />
           <div class="card-body">
             <h5 class="card-title">${res.data[i].price}元</h5>
             <h5 class="card-titles">${res.data[i].name}</h5>
@@ -100,7 +100,7 @@ $(document).ready(function () {
           var likeImg="icons/like.png";
         }
         str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-          <img src="${res.data[i].photoPath}" class="card-img-top" alt="..." />
+          <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].photoPath}" />
           <div class="card-body">
             <h5 class="card-title">${res.data[i].price}元</h5>
             <h5 class="card-titles">${res.data[i].name}</h5>
@@ -133,7 +133,7 @@ function fn(){
         var likeImg="icons/like.png";
       }
       str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-        <img src="${res.data[i].photoPath}" class="card-img-top" alt="..." />
+        <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].photoPath}" />
         <div class="card-body">
           <h5 class="card-title">${res.data[i].price}元</h5>
           <h5 class="card-titles">${res.data[i].name}</h5>
@@ -147,28 +147,6 @@ function fn(){
   })
 }
 fn();
-
-
-$(document).ready(function () {
-  var aaa = document.querySelectorAll(".like-icon");
-  for (let i = 0; i < aaa.length; i++) {
-    aaa[i].addEventListener("click", function () {
-      let dz = aaa[i].parentNode.parentNode;
-      console.log(dz);
-      let cpname = dz.querySelector(".card-titles").innerHTML;
-      var window=document.querySelector(".canteen-window").innerHTML;
-      console.log(cpname);
-      console.log(window);
-      axios({
-        method: "post",
-        url: "http://124.71.207.55:8081/addFavorByName/" + cpname + "/1/" +window,
-      }).then((res) => {
-        console.log(res.data);
-        location.reload();
-      });
-    });
-  }
-});
 
 $(document).on("click",".like-icon",function(){
   let number;
@@ -200,6 +178,6 @@ $(document).on("click",".like-icon",function(){
     method: "post",
     url: "http://124.71.207.55:8081/addFavorByName/" + cpname + "/"+number+"/" +window,
   }).then((res) => {
-    //location.reload();
+   
   });
 }) 

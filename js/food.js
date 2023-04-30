@@ -21,7 +21,7 @@ function fn() {
         var likeImg="icons/like.png";
       }
       str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-        <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].name}" />
+        <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].photoPath}" />
         <div class="card-body">
           <h5 class="card-title">${res.data[i].price}元</h5>
           <h5 class="card-titles">${res.data[i].name}</h5>
@@ -60,7 +60,7 @@ function food_search(a) {
           var likeImg="icons/like.png";
         }
       str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-        <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].name}" />
+        <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].photoPath}" />
         <div class="card-body">
           <h5 class="card-title">${res.data[i].price}元</h5>
           <h5 class="card-titles">${res.data[i].name}</h5>
@@ -100,7 +100,7 @@ $(document).ready(function () {
           var likeImg="icons/like.png";
         }
         str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-          <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].name}" />
+          <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].photoPath}" />
           <div class="card-body">
             <h5 class="card-title">${res.data[i].price}元</h5>
             <h5 class="card-titles">${res.data[i].name}</h5>
@@ -137,7 +137,7 @@ $(document).ready(function () {
           var likeImg="icons/like.png";
         }
         str += `  <div class="card" style="width: 90%; margin: auto; margin-top: 3%">
-          <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].name}" />
+          <img src="${res.data[i].photoPath}" class="card-img-top" alt="${res.data[i].photoPath}" />
           <div class="card-body">
             <h5 class="card-title">${res.data[i].price}元</h5>
             <h5 class="card-titles">${res.data[i].name}</h5>

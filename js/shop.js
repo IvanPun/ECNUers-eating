@@ -40,7 +40,7 @@ function record_west_canteen() {
     })
       .then((response) => {
         console.log(response);
-        alert("信息上传成功");
+        alert(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -48,61 +48,63 @@ function record_west_canteen() {
       });
   }
 
-function addFoodPic(){
-  var upload = document.querySelector("#addFormFile");
-  var foodName = document.querySelector("#addName").value;
-    console.log(foodName);
-upload.addEventListener("change", function (e) {
-  console.log("菜品图片", upload.files);
-  // 调用axios请求接口上传文件
-  var formData = new FormData();
-  console.log(upload.files);
-  formData.append("name", foodName);
-  formData.append("photo", upload.files[0]);
-  // 发送POST请求，上传文件到服务器
-  $("#addFoodPic").click(function () {
-    axios
-      .post("http://124.71.207.55:8081/uploadDishImgByName", formData)
-      .then(function (response) {
+  $("#addFoodPic").click(()=> {
+    var foodName = document.getElementById("addName").value;
+    var upload=document.querySelector("#addFormFile");
+    if(!foodName){
+      alert('请输入菜品名称');
+          return;
+    }
+    if(!upload.files[0]){
+      alert('请上传菜品图片');
+          return;
+    }
+    var formData = new FormData();           
+    formData.append("name", foodName);
+    formData.append("photo", upload.files[0]);
+    axios.post("http://124.71.207.55:8081/uploadDishImgByName", formData ).then(function (response) {
         console.log("文件上传成功", response);
         if (response.status == 200) {
-          alert("菜品图片上传成功");
+          alert(response.data);
         }
       })
       .catch(function (error) {
         console.log("图片上传失败", error);
         alert("菜品图片上传失败");
       });
-  });
-});
-}
-
-function addWindowPic(){
-  var upload=document.querySelector("#addFormFile2");
-  var windowName=document.querySelector("#input-window").value;
-  console.log(windowName);
-  upload.addEventListener("change",function(e){
-    console.log("窗口图片", upload.files);
-  // 调用axios请求接口上传文件
-  var formData = new FormData();
-  console.log(upload.files);
-  formData.append("name", windowName);
-  formData.append("photo", upload.files[0]);
-  // 发送POST请求，上传文件到服务器
-  $("#addWindowPic").click(function () {
-    axios
-      .post("http://124.71.207.55:8081/uploadWindowsImgByName", formData)
-      .then(function (response) {
-        console.log("文件上传成功", response);
-        if (response.status == 200) {
-          alert("窗口图片上传成功");
-        }
-      })
-      .catch(function (error) {
-        console.log("图片上传失败", error);
-        alert("窗口图片上传失败");
-      });
-  });
   })
-}
+
+
+
+  $("#addWindowPic").click(()=> {
+       var windowName = document.getElementById("input-window").value
+       var upload2=document.querySelector("#addFormFile2");
+        if (!windowName) {
+          alert('请输入窗口名称');
+          return;
+        }
+        if (!upload2.files[0]) {
+          alert('请上传窗口图片');
+          return;
+        }
+        var formData = new FormData();           
+        formData.append("name", windowName);
+        formData.append("photo", upload2.files[0]);
+        axios.post("http://124.71.207.55:8081/uploadWindowsImgByName", formData)
+            .then(function (response) {
+              console.log("文件上传成功", response);
+              if (response.status == 200) {
+                alert(response.data);
+              }
+            })
+            .catch(function (error) {
+              console.log("图片上传失败", error);
+              alert("窗口图片上传失败");
+            });
+  })
+
+
+
+
+
 

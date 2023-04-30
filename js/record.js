@@ -46,10 +46,10 @@ $(document).ready(function () {
         let str2="";
         for (let i = 0; i < length; i++) {
           str += `<tr>
-          <td>${response.data[i].time}</td>
+          <td>${response.data[i].timestring}</td>
         </tr>`;
         str2 += `<div class="card" style="width: 100%; margin-top: 3%">
-          <img src="${response.data[i].photoPath}" class="card-img-top" alt="..." />
+          <img src="${response.data[i].photoPath}" class="card-img-top" alt="${response.data[i].photoPath}" />
           <div class="card-body">
             <p class="card-text">
             ${response.data[i].majority}
@@ -80,10 +80,10 @@ $(document).ready(function () {
         let str2="";
         for (let i = 0; i < response.data.length; i++) {
           str += `<tr>
-          <td>${response.data[i].time}</td>
+          <td>${response.data[i].timestring}</td>
         </tr>`;
         str2 += `<div class="card" style="width: 100%; margin-top: 3%">
-          <img src="${response.data[i].photoPath}" class="card-img-top" alt="..." />
+          <img src="${response.data[i].photoPath}" class="card-img-top" alt="${response.data[i].photoPath}" />
           <div class="card-body">
             <p class="card-text">
             ${response.data[i].majority}
@@ -140,10 +140,10 @@ function recordDate(){
         let str2="";
         for (let i = 0; i < response.data.length; i++) {
           str += `<tr>
-          <td>${response.data[i].time}</td>
+          <td>${response.data[i].timestring}</td>
         </tr>`;
         str2 += `<div class="card" style="width: 100%; margin-top: 3%">
-          <img src="${response.data[i].photoPath}" class="card-img-top" alt="..." />
+          <img src="${response.data[i].photoPath}" class="card-img-top" alt="${response.data[i].photoPath}" />
           <div class="card-body">
             <p class="card-text">
             ${response.data[i].majority}
@@ -178,10 +178,10 @@ function recordDate(){
         let str2="";
         for (let i = 0; i < length; i++) {
           str += `<tr>
-          <td>${response.data[i].time}</td>
+          <td>${response.data[i].timestring}</td>
         </tr>`;
         str2 += `<div class="card" style="width: 100%; margin-top: 3%">
-          <img src="${response.data[i].photoPath}" class="card-img-top" alt="..." />
+          <img src="${response.data[i].photoPath}" class="card-img-top" alt="${response.data[i].photoPath}" />
           <div class="card-body">
             <p class="card-text">
             ${response.data[i].majority}
